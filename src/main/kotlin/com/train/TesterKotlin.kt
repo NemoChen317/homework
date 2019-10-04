@@ -1,18 +1,25 @@
 package com.train
 
 fun main(args: Array<String>) {
-    print("Please enter number of tickets: ")
-    val tickets = readLine()!!.toInt()
-    print("How many round-trip tickets: ")
-    var roundTripTickets = readLine()!!.toInt()
 
-    while (tickets <= roundTripTickets){
-        print("How many round-trip tickets: ")
-        roundTripTickets = readLine()!!.toInt()
-    }
+    var tickets = 0
+    do {
+        print("Please enter number of tickets: ")
+        tickets = readLine()!!.toInt()
 
-    val ticket = Ticket(tickets , roundTripTickets)
-    ticket.print()
+        if(tickets != -1) {
+            print("How many round-trip tickets: ")
+            var roundTripTickets = readLine()!!.toInt()
+
+            while (tickets <= roundTripTickets) {
+                print("How many round-trip tickets: ")
+                roundTripTickets = readLine()!!.toInt()
+            }
+
+            val ticket = Ticket(tickets, roundTripTickets)
+            ticket.print()
+        }
+    }while (tickets != -1)
 }
 
 class Ticket (var totalTickets: Int , var roundTripTickets: Int){
